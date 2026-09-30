@@ -3,142 +3,994 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deus Todo Poderoso | Dtp Confeccoes LTDA</title>
+  <title>Deus Todo Poderoso | Moda & Confecções</title>
+  <meta name="description" content="Deus Todo Poderoso - Dtp Confeccoes LTDA. Moda e confecções em Itajaí - SC. Roupas de qualidade com os melhores preços.">
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #8b1538;
+      --primary-dark: #6b0f2a;
+      --accent: #d4a574;
+      --dark: #1a1a2e;
+    }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f8f9fa;
+      color: #333;
+      overflow-x: hidden;
     }
+    h1, h2, h3, .brand-font {
+      font-family: 'Playfair Display', serif;
+    }
+    /* Navbar */
+    .navbar {
+      background-color: rgba(255,255,255,0.98);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+      padding: 0.8rem 0;
+    }
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--primary) !important;
+    }
+    .navbar-brand span {
+      color: var(--dark);
+      font-size: 0.7rem;
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .nav-link {
+      color: var(--dark) !important;
+      font-weight: 500;
+      margin: 0 0.5rem;
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: all 0.3s;
+      transform: translateX(-50%);
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .btn-primary-custom {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+    .btn-primary-custom:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(139,21,56,0.3);
+    }
+    /* Hero */
     .hero {
-      background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
-      color: white;
-      padding: 6rem 0;
+      background: linear-gradient(rgba(26,26,46,0.75), rgba(26,26,46,0.75)), 
+                  url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600') center/cover;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      position: relative;
     }
     .hero h1 {
+      font-size: 4rem;
       font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
     }
-    .card-icon {
+    .hero h1 .highlight {
+      color: var(--accent);
+      font-style: italic;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(212,165,116,0.2);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    /* Features bar */
+    .features-bar {
+      background: var(--dark);
+      color: #fff;
+      padding: 2rem 0;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .feature-item i {
+      font-size: 2rem;
+      color: var(--accent);
+    }
+    .feature-item h6 {
+      margin: 0;
+      font-weight: 600;
+    }
+    .feature-item small {
+      opacity: 0.7;
+    }
+    /* Sections */
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-title .subtitle {
+      color: var(--primary);
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .section-title h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    .section-title p {
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    /* Categories */
+    .category-card {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      height: 320px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .category-card:hover {
+      transform: translateY(-8px);
+    }
+    .category-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .category-card:hover img {
+      transform: scale(1.1);
+    }
+    .category-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      color: #fff;
+    }
+    .category-overlay h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .category-overlay span {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    /* Products */
+    .product-card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+      height: 100%;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+    .product-img-wrapper {
+      position: relative;
+      overflow: hidden;
+      height: 280px;
+    }
+    .product-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .product-card:hover .product-img-wrapper img {
+      transform: scale(1.08);
+    }
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.3rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .product-badge.sale {
+      background: var(--accent);
+      color: var(--dark);
+    }
+    .product-actions {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: all 0.3s;
+    }
+    .product-card:hover .product-actions {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .product-actions button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: #fff;
+      color: var(--dark);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      transition: all 0.3s;
+    }
+    .product-actions button:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    .product-body {
+      padding: 1.3rem;
+    }
+    .product-category {
+      color: #999;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .product-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin: 0.3rem 0;
+      color: var(--dark);
+    }
+    .product-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .product-price-old {
+      font-size: 0.95rem;
+      color: #999;
+      text-decoration: line-through;
+      margin-left: 0.5rem;
+      font-weight: 400;
+    }
+    .product-rating {
+      color: #ffc107;
+      font-size: 0.85rem;
+    }
+    .btn-add-cart {
+      width: 100%;
+      margin-top: 1rem;
+      background: var(--dark);
+      color: #fff;
+      border: none;
+      padding: 0.6rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .btn-add-cart:hover {
+      background: var(--primary);
+    }
+    /* About */
+    .about-section {
+      background: #fdf8f4;
+    }
+    .about-img {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 15px;
+      text-align: center;
+    }
+    .about-badge .number {
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      display: block;
+      line-height: 1;
+    }
+    .about-badge small {
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .about-list li {
+      padding: 0.5rem 0;
+      display: flex;
+      align-items: start;
+      gap: 0.8rem;
+    }
+    .about-list i {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-top: 0.1rem;
+    }
+    /* Testimonials */
+    .testimonial-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      height: 100%;
+      border-top: 4px solid var(--primary);
+    }
+    .testimonial-stars {
+      color: #ffc107;
+      margin-bottom: 1rem;
+    }
+    .testimonial-text {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .testimonial-author h6 {
+      margin: 0;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .testimonial-author small {
+      color: #999;
+    }
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      padding: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: rgba(212,165,116,0.15);
+      border-radius: 50%;
+    }
+    .cta-section h2 {
       font-size: 2.5rem;
-      color: #0d6efd;
+      font-weight: 700;
+      margin-bottom: 1rem;
     }
+    .btn-light-custom {
+      background: #fff;
+      color: var(--primary);
+      font-weight: 600;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      border: none;
+      transition: all 0.3s;
+    }
+    .btn-light-custom:hover {
+      background: var(--accent);
+      color: var(--dark);
+      transform: translateY(-2px);
+    }
+    /* Contact */
+    .contact-info-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      height: 100%;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .contact-info-card:hover {
+      transform: translateY(-5px);
+    }
+    .contact-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: rgba(139,21,56,0.1);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 1.2rem;
+    }
+    .contact-info-card h5 {
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .contact-info-card a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    /* Footer */
     footer {
-      background-color: #1a1a2e;
-      color: #ccc;
-      padding-top: 3rem;
+      background-color: var(--dark);
+      color: #b8b8c8;
+      padding-top: 4rem;
     }
     footer h5 {
       color: #fff;
       font-weight: 600;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.3rem;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 0.8rem;
+    }
+    footer h5::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
     }
     footer a {
-      color: #ccc;
+      color: #b8b8c8;
       text-decoration: none;
       transition: color 0.2s;
     }
     footer a:hover {
+      color: var(--accent);
+    }
+    footer .brand-footer {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
       color: #fff;
+      margin-bottom: 1rem;
+    }
+    footer .brand-footer span {
+      color: var(--accent);
     }
     .footer-bottom {
-      background-color: #111;
-      padding: 1rem 0;
+      background-color: #0f0f1a;
+      padding: 1.5rem 0;
+      margin-top: 3rem;
       font-size: 0.9rem;
     }
     .info-list li {
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .info-list strong {
+      color: #fff;
     }
     .badge-ativa {
       background-color: #198754;
+      font-size: 0.75rem;
     }
     .privacy-link {
       cursor: pointer;
-      color: #0d6efd !important;
+      color: var(--accent) !important;
       font-weight: 600;
     }
     .privacy-link:hover {
       text-decoration: underline;
+    }
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      margin-right: 0.5rem;
+      transition: all 0.3s;
+    }
+    .social-links a:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      box-shadow: 0 5px 20px rgba(139,21,56,0.4);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      z-index: 999;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+    /* WhatsApp float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+      z-index: 999;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .section-title h2 { font-size: 2rem; }
+      .cta-section h2 { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#">
-        <i class="bi bi-shop me-2"></i>Deus Todo Poderoso
+      <a class="navbar-brand" href="#home">
+        Deus Todo Poderoso
+        <span>Dtp Confeccoes</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#home">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#categorias">Categorias</a></li>
+          <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
           <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
           <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacidade</a></li>
+          <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+            <a href="https://wa.me/5547991986001" target="_blank" class="btn btn-primary-custom">
+              <i class="bi bi-whatsapp me-1"></i> Comprar
+            </a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section class="hero text-center">
+  <section id="home" class="hero">
     <div class="container">
-      <h1 class="display-4 mb-3">Deus Todo Poderoso</h1>
-      <p class="lead mb-4">Dtp Confeccoes LTDA — Comércio varejista de outros produtos não especificados anteriormente.</p>
-      <a href="#contato" class="btn btn-light btn-lg px-4 me-2">Fale Conosco</a>
-      <a href="#sobre" class="btn btn-outline-light btn-lg px-4">Saiba Mais</a>
+      <div class="row">
+        <div class="col-lg-7">
+          <span class="hero-badge">Nova Coleção 2026</span>
+          <h1>Vista-se com <span class="highlight">elegância</span> e qualidade</h1>
+          <p>Moda e confecções em Itajaí - SC. Peças selecionadas com os melhores preços para toda a família. Venha conhecer nossa loja!</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#produtos" class="btn btn-primary-custom btn-lg">
+              <i class="bi bi-bag me-2"></i>Ver Produtos
+            </a>
+            <a href="#contato" class="btn btn-outline-light btn-lg px-4" style="border-radius: 50px;">
+              <i class="bi bi-geo-alt me-2"></i>Como Chegar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Bar -->
+  <section class="features-bar">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="feature-item">
+            <i class="bi bi-truck"></i>
+            <div>
+              <h6>Entrega Rápida</h6>
+              <small>Para toda região de Itajaí</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-item">
+            <i class="bi bi-shield-check"></i>
+            <div>
+              <h6>Compra Segura</h6>
+              <small>Empresa registrada e ativa</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-item">
+            <i class="bi bi-credit-card"></i>
+            <div>
+              <h6>Parcele suas Compras</h6>
+              <small>Cartão, PIX e dinheiro</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categorias -->
+  <section id="categorias" class="py-5">
+    <div class="container py-4">
+      <div class="section-title">
+        <span class="subtitle">Nossas Categorias</span>
+        <h2>Encontre seu Estilo</h2>
+        <p>Explore nossa variedade de produtos para todos os gostos e ocasiões</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600" alt="Moda Feminina">
+            <div class="category-overlay">
+              <h4>Moda Feminina</h4>
+              <span>Ver Coleção <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=600" alt="Moda Masculina">
+            <div class="category-overlay">
+              <h4>Moda Masculina</h4>
+              <span>Ver Coleção <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mx-auto">
+          <div class="category-card">
+            <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?w=600" alt="Acessórios">
+            <div class="category-overlay">
+              <h4>Acessórios</h4>
+              <span>Ver Coleção <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Produtos -->
+  <section id="produtos" class="py-5 bg-light">
+    <div class="container py-4">
+      <div class="section-title">
+        <span class="subtitle">Destaques</span>
+        <h2>Produtos em Alta</h2>
+        <p>Confira as peças mais procuradas da nossa loja</p>
+      </div>
+      <div class="row g-4">
+        <!-- Produto 1 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <span class="product-badge sale">Promoção</span>
+              <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500" alt="Vestido Floral">
+              <div class="product-actions">
+                <button title="Favoritar"><i class="bi bi-heart"></i></button>
+                <button title="Ver detalhes"><i class="bi bi-eye"></i></button>
+              </div>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Feminino</span>
+              <h5 class="product-title">Vestido Floral Verão</h5>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+                <small class="text-muted">(45)</small>
+              </div>
+              <div class="mt-2">
+                <span class="product-price">R$ 89,90</span>
+                <span class="product-price-old">R$ 129,90</span>
+              </div>
+              <button class="btn-add-cart"><i class="bi bi-bag-plus me-2"></i>Comprar</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 2 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <span class="product-badge">Novo</span>
+              <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=500" alt="Camisa Social">
+              <div class="product-actions">
+                <button title="Favoritar"><i class="bi bi-heart"></i></button>
+                <button title="Ver detalhes"><i class="bi bi-eye"></i></button>
+              </div>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Masculino</span>
+              <h5 class="product-title">Camisa Social Slim</h5>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <small class="text-muted">(32)</small>
+              </div>
+              <div class="mt-2">
+                <span class="product-price">R$ 119,90</span>
+              </div>
+              <button class="btn-add-cart"><i class="bi bi-bag-plus me-2"></i>Comprar</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 3 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <span class="product-badge sale">-30%</span>
+              <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=500" alt="Bolsa Feminina">
+              <div class="product-actions">
+                <button title="Favoritar"><i class="bi bi-heart"></i></button>
+                <button title="Ver detalhes"><i class="bi bi-eye"></i></button>
+              </div>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Acessórios</span>
+              <h5 class="product-title">Bolsa Couro Premium</h5>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <small class="text-muted">(28)</small>
+              </div>
+              <div class="mt-2">
+                <span class="product-price">R$ 159,90</span>
+                <span class="product-price-old">R$ 229,90</span>
+              </div>
+              <button class="btn-add-cart"><i class="bi bi-bag-plus me-2"></i>Comprar</button>
+            </div>
+          </div>
+        </div>
+        <!-- Produto 4 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <span class="product-badge">Novo</span>
+              <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=500" alt="Calça Jeans">
+              <div class="product-actions">
+                <button title="Favoritar"><i class="bi bi-heart"></i></button>
+                <button title="Ver detalhes"><i class="bi bi-eye"></i></button>
+              </div>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Feminino</span>
+              <h5 class="product-title">Calça Jeans Skinny</h5>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+                <small class="text-muted">(51)</small>
+              </div>
+              <div class="mt-2">
+                <span class="product-price">R$ 139,90</span>
+              </div>
+              <button class="btn-add-cart"><i class="bi bi-bag-plus me-2"></i>Comprar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="https://wa.me/5547991986001" target="_blank" class="btn btn-primary-custom btn-lg">
+          <i class="bi bi-whatsapp me-2"></i>Ver Catálogo Completo
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- Sobre -->
-  <section id="sobre" class="py-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <h2 class="fw-bold mb-3">Sobre a Empresa</h2>
-          <p>A empresa <strong>Deus Todo Poderoso</strong> de CNPJ <strong>65.106.789/0001-05</strong>, fundada em <strong>10/02/2026</strong> e com razão social <strong>Dtp Confeccoes LTDA</strong>, está localizada na cidade de <strong>Itajaí</strong> do estado de <strong>Santa Catarina</strong>.</p>
-          <p>Sua atividade principal, conforme a Receita Federal, é <strong>47.89-0-99 — Comércio varejista de outros produtos não especificados anteriormente</strong>. Sua situação cadastral até o momento é <span class="badge badge-ativa">Ativa</span>.</p>
-          <ul class="list-unstyled info-list mt-4">
-            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Micro Empresa</li>
-            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Optante pelo Simples Nacional</li>
-            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Capital Social: R$ 20.000,00</li>
-          </ul>
+  <section id="sobre" class="about-section py-5">
+    <div class="container py-4">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800" alt="Loja Deus Todo Poderoso">
+            <div class="about-badge">
+              <span class="number">100%</span>
+              <small>Qualidade</small>
+            </div>
+          </div>
         </div>
         <div class="col-lg-6">
-          <div class="row g-3">
-            <div class="col-6">
-              <div class="card border-0 shadow-sm text-center p-4 h-100">
-                <i class="bi bi-calendar-check card-icon"></i>
-                <h5 class="mt-3">Abertura</h5>
-                <p class="text-muted mb-0">10/02/2026</p>
+          <span class="subtitle text-uppercase fw-bold" style="color: var(--primary); letter-spacing: 3px; font-size: 0.85rem;">Sobre Nós</span>
+          <h2 class="fw-bold mt-2 mb-3" style="color: var(--dark);">Deus Todo Poderoso — Moda com Propósito</h2>
+          <p class="text-muted mb-4">A <strong>Dtp Confeccoes LTDA</strong>, conhecida como <strong>Deus Todo Poderoso</strong>, é uma micro empresa familiar localizada em Itajaí - SC, dedicada a oferecer roupas e acessórios de qualidade com preços acessíveis para toda a família.</p>
+          <p class="text-muted mb-4">Trabalhamos com peças selecionadas, sempre acompanhando as tendências da moda, para que você encontre o estilo perfeito para cada ocasião.</p>
+          <ul class="list-unstyled about-list">
+            <li>
+              <i class="bi bi-check-circle-fill"></i>
+              <div>
+                <strong>Empresa Registrada e Ativa</strong>
+                <p class="text-muted small mb-0">CNPJ 65.106.789/0001-05 — Optante pelo Simples Nacional</p>
+              </div>
+            </li>
+            <li>
+              <i class="bi bi-check-circle-fill"></i>
+              <div>
+                <strong>Atendimento Personalizado</strong>
+                <p class="text-muted small mb-0">Equipe pronta para te ajudar a escolher a peça ideal</p>
+              </div>
+            </li>
+            <li>
+              <i class="bi bi-check-circle-fill"></i>
+              <div>
+                <strong>Localização Privilegiada</strong>
+                <p class="text-muted small mb-0">Rua Joaquim Falco Uriarte, 515 — Sala 2 C, São Judas, Itajaí - SC</p>
+              </div>
+            </li>
+          </ul>
+          <a href="#contato" class="btn btn-primary-custom mt-3">
+            <i class="bi bi-geo-alt me-2"></i>Visite Nossa Loja
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="section-title">
+        <span class="subtitle">Depoimentos</span>
+        <h2>O Que Nossos Clientes Dizem</h2>
+        <p>A satisfação de quem compra na Deus Todo Poderoso</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testimonial-text">"Qualidade excelente das roupas e atendimento maravilhoso! Sempre encontro o que preciso com preços justos. Recomendo demais!"</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MS</div>
+              <div>
+                <h6>Maria Silva</h6>
+                <small>Cliente desde 2026</small>
               </div>
             </div>
-            <div class="col-6">
-              <div class="card border-0 shadow-sm text-center p-4 h-100">
-                <i class="bi bi-building card-icon"></i>
-                <h5 class="mt-3">Porte</h5>
-                <p class="text-muted mb-0">Micro Empresa</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testimonial-text">"Comprei várias peças para minha família e todas têm ótima durabilidade. A loja tem variedade e o atendimento é muito atencioso."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">JC</div>
+              <div>
+                <h6>João Carlos</h6>
+                <small>Cliente fiel</small>
               </div>
             </div>
-            <div class="col-6">
-              <div class="card border-0 shadow-sm text-center p-4 h-100">
-                <i class="bi bi-file-earmark-text card-icon"></i>
-                <h5 class="mt-3">CNPJ</h5>
-                <p class="text-muted mb-0">65.106.789/0001-05</p>
-              </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
             </div>
-            <div class="col-6">
-              <div class="card border-0 shadow-sm text-center p-4 h-100">
-                <i class="bi bi-geo-alt card-icon"></i>
-                <h5 class="mt-3">Local</h5>
-                <p class="text-muted mb-0">Itajaí - SC</p>
+            <p class="testimonial-text">"Adorei as novidades da nova coleção! Peças lindas e modernas. A loja está de parabéns pela variedade e qualidade."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AP</div>
+              <div>
+                <h6>Ana Paula</h6>
+                <small>Cliente</small>
               </div>
             </div>
           </div>
@@ -147,30 +999,56 @@
     </div>
   </section>
 
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container position-relative">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <h2>Ganhe 10% de desconto na primeira compra!</h2>
+          <p class="mb-0 fs-5">Fale conosco pelo WhatsApp e receba seu cupom exclusivo de boas-vindas.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+          <a href="https://wa.me/5547991986001" target="_blank" class="btn btn-light-custom btn-lg">
+            <i class="bi bi-whatsapp me-2"></i>Resgatar Cupom
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Contato -->
-  <section id="contato" class="py-5 bg-white">
-    <div class="container">
-      <h2 class="fw-bold text-center mb-5">Entre em Contato</h2>
-      <div class="row g-4 justify-content-center">
-        <div class="col-md-4">
-          <div class="card border-0 shadow-sm h-100 text-center p-4">
-            <i class="bi bi-envelope-fill card-icon"></i>
-            <h5 class="mt-3">E-mail</h5>
-            <a href="mailto:v8kdistribuidora@gmail.com" class="text-decoration-none">v8kdistribuidora@gmail.com</a>
+  <section id="contato" class="py-5 bg-light">
+    <div class="container py-4">
+      <div class="section-title">
+        <span class="subtitle">Fale Conosco</span>
+        <h2>Entre em Contato</h2>
+        <p>Estamos prontos para atender você da melhor forma possível</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="contact-info-card">
+            <div class="contact-icon"><i class="bi bi-whatsapp"></i></div>
+            <h5>WhatsApp / Telefone</h5>
+            <p class="text-muted mb-2">Atendimento rápido e personalizado</p>
+            <a href="https://wa.me/5547991986001" target="_blank">(47) 99198-6001</a>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card border-0 shadow-sm h-100 text-center p-4">
-            <i class="bi bi-telephone-fill card-icon"></i>
-            <h5 class="mt-3">Telefone / WhatsApp</h5>
-            <a href="tel:+5547991986001" class="text-decoration-none">(47) 99198-6001</a>
+        <div class="col-lg-4 col-md-6">
+          <div class="contact-info-card">
+            <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+            <h5>E-mail</h5>
+            <p class="text-muted mb-2">Para dúvidas e informações</p>
+            <a href="mailto:v8kdistribuidora@gmail.com">v8kdistribuidora@gmail.com</a>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card border-0 shadow-sm h-100 text-center p-4">
-            <i class="bi bi-geo-alt-fill card-icon"></i>
-            <h5 class="mt-3">Endereço</h5>
-            <p class="mb-0">Rua Joaquim Falco Uriarte, 515<br>Sala 2 C — São Judas<br>Itajaí - SC, 88303-380</p>
+        <div class="col-lg-4 col-md-6 mx-auto">
+          <div class="contact-info-card">
+            <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <h5>Endereço</h5>
+            <p class="text-muted mb-2">Venha nos visitar</p>
+            <a href="https://maps.google.com/?q=Rua+Joaquim+Falco+Uriarte+515+Itajaí+SC" target="_blank">
+              Rua Joaquim Falco Uriarte, 515<br>Sala 2 C — São Judas<br>Itajaí - SC, 88303-380
+            </a>
           </div>
         </div>
       </div>
@@ -181,109 +1059,120 @@
   <footer>
     <div class="container">
       <div class="row g-4">
+        <!-- Sobre -->
+        <div class="col-lg-4 col-md-6">
+          <div class="brand-footer">Deus Todo <span>Poderoso</span></div>
+          <p class="small">Moda e confecções de qualidade em Itajaí - SC. Vista-se com elegância e estilo, com preços que cabem no seu bolso.</p>
+          <div class="social-links mt-3">
+            <a href="https://wa.me/5547991986001" target="_blank" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="mailto:v8kdistribuidora@gmail.com" title="E-mail"><i class="bi bi-envelope-fill"></i></a>
+            <a href="tel:+5547991986001" title="Telefone"><i class="bi bi-telephone-fill"></i></a>
+          </div>
+        </div>
+
         <!-- Informações de Registro -->
         <div class="col-lg-4 col-md-6">
-          <h5><i class="bi bi-file-earmark-text me-2"></i>Informações de Registro</h5>
+          <h5>Informações de Registro</h5>
           <ul class="list-unstyled info-list">
             <li><strong>CNPJ:</strong> 65.106.789/0001-05</li>
             <li><strong>Razão Social:</strong> Dtp Confeccoes LTDA</li>
             <li><strong>Nome Fantasia:</strong> Deus Todo Poderoso</li>
-            <li><strong>Data da Abertura:</strong> 10/02/2026</li>
+            <li><strong>Abertura:</strong> 10/02/2026</li>
             <li><strong>Porte:</strong> Micro Empresa</li>
-            <li><strong>Natureza Jurídica:</strong> Sociedade Empresária Limitada</li>
-            <li><strong>Opção pelo MEI:</strong> Não</li>
-            <li><strong>Opção pelo Simples:</strong> Sim (12/02/2026)</li>
+            <li><strong>Natureza:</strong> Sociedade Empresária Limitada</li>
+            <li><strong>Simples Nacional:</strong> Sim (12/02/2026)</li>
             <li><strong>Capital Social:</strong> R$ 20.000,00</li>
             <li><strong>Tipo:</strong> Matriz</li>
             <li><strong>Situação:</strong> <span class="badge badge-ativa">Ativa</span></li>
-            <li><strong>Data Situação Cadastral:</strong> 10/02/2026</li>
+            <li><strong>Atividade:</strong> 47.89-0-99 — Comércio varejista de outros produtos não especificados anteriormente</li>
           </ul>
         </div>
 
-        <!-- Contatos -->
-        <div class="col-lg-3 col-md-6">
-          <h5><i class="bi bi-person-lines-fill me-2"></i>Contatos</h5>
-          <ul class="list-unstyled info-list">
+        <!-- Contatos e Localização -->
+        <div class="col-lg-4 col-md-6">
+          <h5>Contatos</h5>
+          <ul class="list-unstyled info-list mb-4">
             <li><i class="bi bi-envelope me-2"></i><a href="mailto:v8kdistribuidora@gmail.com">v8kdistribuidora@gmail.com</a></li>
             <li><i class="bi bi-telephone me-2"></i><a href="tel:+5547991986001">(47) 99198-6001</a></li>
             <li><i class="bi bi-whatsapp me-2"></i><a href="https://wa.me/5547991986001" target="_blank">WhatsApp</a></li>
           </ul>
-          <h5 class="mt-4"><i class="bi bi-people-fill me-2"></i>Quadro de Sócios</h5>
-          <ul class="list-unstyled info-list">
-            <li>Robson Generoso Barbosa</li>
-            <li><small>Sócio-Administrador</small></li>
-          </ul>
-        </div>
 
-        <!-- Localização -->
-        <div class="col-lg-3 col-md-6">
-          <h5><i class="bi bi-geo-alt-fill me-2"></i>Localização</h5>
-          <ul class="list-unstyled info-list">
-            <li><strong>Logradouro:</strong> Rua Joaquim Falco Uriarte, 515</li>
-            <li><strong>Complemento:</strong> Sala 2 C</li>
-            <li><strong>Bairro:</strong> São Judas</li>
-            <li><strong>CEP:</strong> 88303-380</li>
-            <li><strong>Município:</strong> Itajaí</li>
-            <li><strong>Estado:</strong> Santa Catarina</li>
+          <h5>Localização</h5>
+          <ul class="list-unstyled info-list mb-4">
+            <li><i class="bi bi-geo-alt me-2"></i>Rua Joaquim Falco Uriarte, 515</li>
+            <li><i class="bi bi-door-open me-2"></i>Complemento: Sala 2 C</li>
+            <li><i class="bi bi-map me-2"></i>Bairro: São Judas</li>
+            <li><i class="bi bi-mailbox me-2"></i>CEP: 88303-380</li>
+            <li><i class="bi bi-building me-2"></i>Itajaí - Santa Catarina</li>
           </ul>
-          <h5 class="mt-4"><i class="bi bi-mailbox me-2"></i>Correspondência</h5>
-          <p class="small mb-0">
-            Deus Todo Poderoso Dtp Confeccoes LTDA<br>
-            Rua Joaquim Falco Uriarte 515 Sala 2 C<br>
-            São Judas<br>
-            Itajaí SC<br>
-            88303-380
-          </p>
-        </div>
 
-        <!-- Links e Privacidade -->
-        <div class="col-lg-2 col-md-6">
-          <h5><i class="bi bi-link-45deg me-2"></i>Links</h5>
+          <h5>Quadro de Sócios</h5>
           <ul class="list-unstyled info-list">
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
-            <li><a href="#" class="privacy-link" data-bs-toggle="modal" data-bs-target="#privacyModal">Política de Privacidade</a></li>
+            <li><i class="bi bi-person-badge me-2"></i>Robson Generoso Barbosa</li>
+            <li class="ms-4 small">Sócio-Administrador</li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="footer-bottom text-center mt-4">
+
+    <div class="footer-bottom text-center">
       <div class="container">
-        <p class="mb-0">&copy; 2026 Deus Todo Poderoso — Dtp Confeccoes LTDA. Todos os direitos reservados.</p>
+        <div class="row align-items-center">
+          <div class="col-md-6 text-md-start mb-2 mb-md-0">
+            <p class="mb-0">&copy; 2026 Deus Todo Poderoso — Dtp Confeccoes LTDA. Todos os direitos reservados.</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <a href="#" class="privacy-link" data-bs-toggle="modal" data-bs-target="#privacyModal">
+              <i class="bi bi-shield-lock me-1"></i>Política de Privacidade
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
+
+  <!-- Botão Voltar ao Topo -->
+  <button class="back-to-top" id="backToTop" title="Voltar ao topo">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- WhatsApp Flutuante -->
+  <a href="https://wa.me/5547991986001?text=Olá! Gostaria de mais informações sobre os produtos." target="_blank" class="whatsapp-float" title="Fale conosco pelo WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
 
   <!-- Modal Política de Privacidade -->
   <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" style="background: var(--primary); color: #fff;">
           <h5 class="modal-title fw-bold" id="privacyModalLabel"><i class="bi bi-shield-lock me-2"></i>Política de Privacidade</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
         </div>
         <div class="modal-body">
           <p><strong>Última atualização:</strong> 10/02/2026</p>
           <p>A <strong>Dtp Confeccoes LTDA</strong>, inscrita no CNPJ <strong>65.106.789/0001-05</strong>, com nome fantasia <strong>Deus Todo Poderoso</strong>, valoriza a sua privacidade e está comprometida em proteger os dados pessoais que você compartilha conosco.</p>
 
-          <h6 class="fw-bold mt-4">1. Coleta de Informações</h6>
-          <p>Coletamos informações quando você entra em contato conosco por e-mail, telefone ou WhatsApp, incluindo nome, endereço de e-mail, número de telefone e demais dados necessários para atendimento.</p>
+          <h6 class="fw-bold mt-4" style="color: var(--primary);">1. Coleta de Informações</h6>
+          <p>Coletamos informações quando você entra em contato conosco por e-mail, telefone, WhatsApp ou redes sociais, incluindo nome, endereço de e-mail, número de telefone e demais dados necessários para atendimento e processamento de pedidos.</p>
 
-          <h6 class="fw-bold mt-4">2. Uso das Informações</h6>
+          <h6 class="fw-bold mt-4" style="color: var(--primary);">2. Uso das Informações</h6>
           <p>As informações coletadas são utilizadas exclusivamente para:</p>
           <ul>
-            <li>Responder a solicitações e dúvidas;</li>
+            <li>Responder a solicitações, dúvidas e orçamentos;</li>
             <li>Fornecer informações sobre produtos e serviços;</li>
+            <li>Processar pedidos e realizar entregas;</li>
+            <li>Enviar promoções e novidades (com seu consentimento);</li>
             <li>Cumprir obrigações legais e regulatórias.</li>
           </ul>
 
-          <h6 class="fw-bold mt-4">3. Compartilhamento de Dados</h6>
-          <p>Não vendemos, alugamos ou compartilhamos seus dados pessoais com terceiros, exceto quando exigido por lei ou para prestação de serviços essenciais.</p>
+          <h6 class="fw-bold mt-4" style="color: var(--primary);">3. Compartilhamento de Dados</h6>
+          <p>Não vendemos, alugamos ou compartilhamos seus dados pessoais com terceiros, exceto quando exigido por lei ou para prestação de serviços essenciais (como transportadoras para entrega).</p>
 
-          <h6 class="fw-bold mt-4">4. Segurança</h6>
+          <h6 class="fw-bold mt-4" style="color: var(--primary);">4. Segurança</h6>
           <p>Adotamos medidas técnicas e organizacionais para proteger seus dados contra acesso não autorizado, perda ou alteração.</p>
 
-          <h6 class="fw-bold mt-4">5. Seus Direitos (LGPD)</h6>
+          <h6 class="fw-bold mt-4" style="color: var(--primary);">5. Seus Direitos (LGPD)</h6>
           <p>Nos termos da Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem direito a:</p>
           <ul>
             <li>Confirmar a existência de tratamento de dados;</li>
@@ -293,7 +1182,10 @@
             <li>Revogar o consentimento a qualquer momento.</li>
           </ul>
 
-          <h6 class="fw-bold mt-4">6. Contato</h6>
+          <h6 class="fw-bold mt-4" style="color: var(--primary);">6. Cookies</h6>
+          <p>Nosso site pode utilizar cookies para melhorar a experiência de navegação. Você pode configurar seu navegador para recusar cookies, mas isso pode afetar algumas funcionalidades.</p>
+
+          <h6 class="fw-bold mt-4" style="color: var(--primary);">7. Contato</h6>
           <p>Para exercer seus direitos ou esclarecer dúvidas sobre esta Política, entre em contato:</p>
           <ul class="list-unstyled">
             <li><i class="bi bi-envelope me-2"></i>E-mail: <a href="mailto:v8kdistribuidora@gmail.com">v8kdistribuidora@gmail.com</a></li>
@@ -312,5 +1204,32 @@
 
   <!-- Bootstrap 5 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Back to top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Smooth scroll para links do menu
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
